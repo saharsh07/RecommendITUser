@@ -1,0 +1,25 @@
+<%- include('./partials/head') %>
+<%- include('./partials/nav') %>
+
+<section id="homeSec" class="main">
+    <body onload="askPermission()"></body>
+    <% productData.forEach(product => { %>
+        <figure class="home__fig">
+            <a href="/details/<%= product.id %>" target="_blank">
+                <img class="home__img" src=<%= product.pictureLink %> alt="">
+            </a>
+            <figcaption>
+                <a class="fig__link" href="/single/<%= product.id %>" target="_blank"></a>
+                    <%= product.productName %>
+                    <% if(typeof displayName == 'string' && displayName ) {%>
+                        <span class="promo">Promo Code: <%= product.promo %></span> 
+                        <% }else{ %>  
+                            <span class="promo">Login To Get Promo Code</span>
+                         <% } %>
+                <p class="price">₹<%= product.price %></p>
+            </figcaption>
+        </figure>
+    <% }) %>
+</section>
+
+<%- include('./partials/footer')%>
