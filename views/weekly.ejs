@@ -1,0 +1,25 @@
+<%- include('./partials/head') %>
+<%- include('./partials/nav') %>
+
+<section id="weeklySec" class="main">
+    <h2 class="secTitle">These are our recomendations this week</h2>
+
+    <section class="weekly-products">
+        <% weeklyData.forEach(product => { %>
+            <figure class="random__fig">
+                <a href="/details/<%= product.id %>" target="_blank">
+                    <img class="random__img" src=<%= product.pictureLink %> alt="">
+                </a>
+                <figcaption>
+                    <a class="fig__link" href="/single/<%= product.id %>" target="_blank">
+                        <%= product.productName %>
+                        <span class="promo"><%=product.promo %></span>
+                    </a>
+                    <p class="price">₹<%= product.price %></p>
+                </figcaption>
+            </figure>
+        <% }) %>
+    </section>
+</section>
+
+<%- include('./partials/footer')%>
