@@ -1,0 +1,17 @@
+<nav class="header-nav">
+    <a id="logo" class="nav__link" href="/"><h1>RecommendIT</h1></a>
+    <div class="menu">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+        <input type="checkbox" id="menu-toggle">
+
+        <ul class="header-menu">
+            <li class="header__item"><a href="/weekly" class="nav__link">Weekly Recommendations</a></li>
+            <li class="header__item"><a href="/lessThan1500" class="nav__link">Less than ₹1500</a></li> 
+            <% if(typeof displayName == 'string' && displayName ) {%>
+                <li class="header__item"><a href="/logout" class="nav__link">Log Out</a></li>  
+            <% }else{ %>  
+                <li class="header__item"><a href="/login" class="nav__link">Register/Login</a></li>
+             <% } %>
+        </ul>
+    </div>
+</nav>
