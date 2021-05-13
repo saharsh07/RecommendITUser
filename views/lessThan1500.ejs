@@ -1,0 +1,21 @@
+<%- include('./partials/head') %>
+<%- include('./partials/nav') %>
+
+<section id="lessSec" class="main">
+    <% cheapData.forEach(product => { %>
+        <figure class="less__fig">
+            <a href="/details/<%= product.id %>" target="_blank">
+                <img class="less__img" src=<%= product.pictureLink %> alt="">
+            </a>
+            <figcaption>
+                <a class="fig__link" href="/single/<%= product.id %>" target="_blank">
+                    <%= product.productName %>
+                    <span class="promo"><%= product.promo %></span>
+                </a>
+                <p class="price">₹<%= product.price %></p>
+            </figcaption>
+        </figure>
+    <% }) %>
+</section>
+
+<%- include('./partials/footer')%>
