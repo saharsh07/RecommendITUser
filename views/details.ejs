@@ -1,0 +1,42 @@
+<%- include('./partials/head') %>
+<%- include('./partials/nav') %>
+
+<section id="detailsSec" class="main">
+    <article class="product-wrapper">
+        <!-- <div class="Buttons">
+            <button onclick="toggleHide()" id="editButton">Edit</button>
+            <a href="/details/<%=product.id%>/delete" id="deleteButton">Delete</a>
+        </div> -->
+        <figure>
+            <img class="details__img" src="<%= product.pictureLink %>"" alt="">
+            <figcaption>
+                <h4 class="fig__link"><%= product.productName %><br>
+                    <% if(typeof displayName == 'string' && displayName ) {%>
+                    <span class="promo">Promo Code: <%= product.promo %></span> 
+                    <% }else{ %>  
+                        <span class="promo">Login To Get Promo Code</span>
+                     <% } %>
+                </h4>
+                <p class="price">₹<%= product.price %></p>
+            </figcaption>
+        </figure>
+
+        <h4 class="details-h4">Product Description:</h4>
+        <p class="details-p"><%= product.description %></p>
+        <a class="fig__link" href="<%= product.shopLink %>" target="_blank" id="buyButton">Buy Product</a>
+    </article>
+    <form action="/details/<%=product.id%>/edit" method="POST" id="myForm" class="hide">
+        <input type="text" name="productName" placeholder="Product-name" value="<%= product.productName %>">
+        <input type="text" name="pictureLink" placeholder="Url Picture" value="<%= product.pictureLink %>">
+        <input type="text" name="promo" placeholder="Company" value="<%= product.promo %>">
+        <input type="number" name="price" placeholder= "Price in $" value="<%= product.price %>">
+        <textarea name="description" id="description" cols="30" rows="6" placeholder="Write your article here..."><%= product.description %></textarea>
+
+        <input type="text" name="shopLink" placeholder="Link-shop" value="<%= product.shopLink %>">
+
+        <input type="submit" value="Edit Product">
+    </form>
+
+</section>
+
+<%- include('./partials/footer')%>
